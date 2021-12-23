@@ -8,7 +8,7 @@ export const Container = styled.div`
     justify-content: center;
 `
 
-export const ProfileAvatar = styled.img`
+export const ProfilePicture = styled.img`
     width: 130px;
     height: 130px;
     border-radius: 50%;

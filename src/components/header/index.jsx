@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import client from '../../services/client';
-import { context } from '../../context'; 
+import { Link } from 'react-router-dom';
+
 import {
     HeaderSection,
     HeaderTitle,
@@ -9,6 +9,10 @@ import {
     HeaderInput,
     HeaderSearchButton
 } from './styles';
+
+import client from '../../services/client';
+
+import { context } from '../../context';
 
 const Header = props => {
     const ctx = useContext(context);
@@ -30,15 +34,20 @@ const Header = props => {
 
     return (
         <HeaderSection>
-            <HeaderTitle>Github Search Profile</HeaderTitle>
+            <HeaderTitle>Github Profile</HeaderTitle>
             <HeaderInputContainer>
-                <HeaderInput type="text" value={searchValue} onChange={e => setSearchValue(e.target.value)}/>
-                
-                <HeaderSearchButton>
+                <HeaderInput type="text" value={searchValue} onChange={e => setSearchValue(e.target.value)} />
+        
+                {/* <HeaderSearchButton onClick={saveQueryOnURL}>
                     <FiSearch size={15} />
-                </HeaderSearchButton>
+                </HeaderSearchButton> */}
+
+                <Link to={`/?username=${searchValue}`}>
+                    <FiSearch size={15} />
+                </Link>
             </HeaderInputContainer>
         </HeaderSection>
     );
 }
+
 export default Header;

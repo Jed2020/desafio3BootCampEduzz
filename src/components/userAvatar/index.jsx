@@ -1,11 +1,11 @@
 import {
     Container,
-    ProfileAvatar
+    ProfilePicture
 } from './styles';
 
 const UserAvatar = props => (
     <Container>
-        <ProfileAvatar src={props.url} alt="userAvatar" />
+        <ProfilePicture src={props.url} alt="anthonyvii27" />
     </Container>
 );
 
