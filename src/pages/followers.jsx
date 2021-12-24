@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
 
 import Container from "../components/container";
-import ReposContainer from "../components/reposContainer";
+import FollowersContainer from "../components/followersContainer";
 
 import { context } from '../context';
 
-const Repos = () => {
+const Followers = () => {
     const ctx = useContext(context);
 
     return (
         <Container>
-            <ReposContainer name={ctx.userData?.name} repos={ctx.userRepos} />
+            <FollowersContainer login={ctx.userData?.login} followers={ctx.userFollowers} />
         </Container>
     );
 }
 
-export default Repos;
+export default Followers;

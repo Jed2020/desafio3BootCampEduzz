@@ -3,10 +3,10 @@ import {
     ProfilePicture
 } from './styles';
 
-const UserAvatar = props => (
+const FollowerAvatar = props => (
     <Container>
         <ProfilePicture src={props.url} alt="avatar" />
     </Container>
 );
 
-export default UserAvatar;
+export default FollowerAvatar;

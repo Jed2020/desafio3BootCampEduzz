@@ -7,7 +7,6 @@ import {
     HeaderTitle,
     HeaderInputContainer,
     HeaderInput,
-    HeaderSearchButton
 } from './styles';
 
 import client from '../../services/client';
@@ -23,9 +22,11 @@ const Header = props => {
             try {
                 const response = await client.get(`/${props.username}`);
                 const repos = await client.get(`/${props.username}/repos`);
+                const followers = await client.get(`/${props.username}/followers`);
  
                 ctx.setUserData(response.data);
                 ctx.setUserRepos(repos.data);
+                ctx.setUserFollowers(followers.data);
             } catch(err) {
                 console.log(err);
             }
@@ -34,14 +35,9 @@ const Header = props => {
 
     return (
         <HeaderSection>
-            <HeaderTitle>Github Profile</HeaderTitle>
+            <HeaderTitle>Github Search Users</HeaderTitle>
             <HeaderInputContainer>
                 <HeaderInput type="text" value={searchValue} onChange={e => setSearchValue(e.target.value)} />
-        
-                {/* <HeaderSearchButton onClick={saveQueryOnURL}>
-                    <FiSearch size={15} />
-                </HeaderSearchButton> */}
-
                 <Link to={`/?username=${searchValue}`}>
                     <FiSearch size={15} />
                 </Link>
