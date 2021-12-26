@@ -14,8 +14,8 @@ const FollowerContainer = props => {
             <Title>Seguidores de {(props.login)?.split(' ')[0]}</Title>
             <ListOfFollowerContainer>
                 {(props?.followers).map(foler => (
-                    <Follower onClick={() => window.location.href(foler?.html_url)} key={foler?.id}>
-                        <h2>{foler?.login}</h2>
+                    <Follower>
+                        <h1><a href={foler?.html_url} target="_blank" rel="noreferrer">{foler?.login}</a></h1>
                         <UserPicture url={foler?.avatar_url} />
                     </Follower>
                 ))}
